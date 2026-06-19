@@ -1,0 +1,40 @@
+package com.Inmobiliaria.demo.cliente.controller;
+
+import com.Inmobiliaria.demo.cliente.model.Cliente;
+import com.Inmobiliaria.demo.cliente.service.ClienteService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/clientes")
+public class ClienteController {
+
+    @Autowired
+    private ClienteService clienteService;
+
+    @GetMapping
+    public ResponseEntity<List<Cliente>> listar() {
+        List<Cliente> clientes = clienteService.findAll();
+        if (clientes.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(clientes);
+    }
+
+    @PostMapping
+    public ResponseEntity<Cliente> guardar(@Valid @RequestBody Cliente cliente) {
+        Cliente clienteNuevo = clienteService.save(cliente);
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteNuevo);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+        clienteService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
