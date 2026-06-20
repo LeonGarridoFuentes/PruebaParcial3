@@ -1,17 +1,15 @@
 package com.Inmobiliaria.demo.notificacion.model;
 
 import com.Inmobiliaria.demo.cliente.model.Cliente;
+import com.Inmobiliaria.demo.reclamo.model.Reclamo;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.AllArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "notificacion")
+@Table(name = "notificaciones")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,30 +19,24 @@ public class Notificacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
-    @NotNull
-    private Cliente cliente;
-
     @Column(nullable = false)
-    @NotBlank
     private String mensaje;
 
-    @Column(nullable = false)
-    @NotBlank
-    private String tipo;
+    private boolean leido = false;
 
-    @Column(nullable = false)
-    private Boolean leido;
+    private LocalDateTime fechaCreacion;
 
-    private LocalDateTime fechaEnvio;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
+    private Cliente cliente;
+
+
+    @ManyToOne
+    @JoinColumn(name = "reclamo_id", nullable = true)
+    private Reclamo reclamo;
 
     @PrePersist
     protected void onCreate() {
-        fechaEnvio = LocalDateTime.now();
-
-        if (leido == null) {
-            leido = false;
-        }
+        this.fechaCreacion = LocalDateTime.now();
     }
 }
