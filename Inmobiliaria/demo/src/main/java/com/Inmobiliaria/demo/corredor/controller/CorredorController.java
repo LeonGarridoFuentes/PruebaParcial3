@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/corredores")
+@RequestMapping("/api/corredores")//hola
 public class CorredorController {
 
     @Autowired
