@@ -19,19 +19,13 @@ public class PropiedadService {
         return propiedadRepository.findById(id);
     }
 
-    public Optional<Propiedad> findByIdAndEstado(Long id, boolean estado) {
-        return propiedadRepository.findByIdAndEstado(id, estado);
-    }
 
-    public Optional<Propiedad> findByIdAndUbicacion(Long id, String ubicacion) {
-        return propiedadRepository.findByIdAndUbicacionIgnoreCase(id, ubicacion);
-    }
 
     public Propiedad save(Propiedad propiedad) {
         return propiedadRepository.save(propiedad);
     }
 
-    public boolean delete(Long id) {
+    public boolean deleteById(Long id) {
         if (propiedadRepository.existsById(id)) {
             propiedadRepository.deleteById(id);
             return true;

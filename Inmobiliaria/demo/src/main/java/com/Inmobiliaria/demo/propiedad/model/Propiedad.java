@@ -1,5 +1,6 @@
 package com.Inmobiliaria.demo.propiedad.model;
 
+import com.Inmobiliaria.demo.direccion.model.Direccion;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -31,10 +32,10 @@ public class Propiedad {
     private int precio;
 
     @Column(nullable = false)
-    @NotBlank
-    private String ubicacion;
-
-    @Column(nullable = false)
     @NotNull
     private boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "direccion_id", nullable = false)
+    private Direccion direccion;
 }

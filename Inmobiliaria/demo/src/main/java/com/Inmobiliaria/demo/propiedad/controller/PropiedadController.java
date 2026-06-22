@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/propiedades")
+@RequestMapping("/api/v1/propiedades")
 public class PropiedadController {
 
     @Autowired
@@ -22,25 +22,15 @@ public class PropiedadController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Propiedad> obtenerPorId(@PathVariable Long id) {
+    public ResponseEntity<Propiedad> findById(@PathVariable Long id) {
         return propiedadService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Propiedad> editarPorId(@PathVariable Long id, @Valid @RequestBody Propiedad propiedad) {
-        if (!propiedadService.findById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        propiedad.setId(id);
-        Propiedad editada = propiedadService.save(propiedad);
-        return ResponseEntity.ok(editada);
-    }
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarPorId(@PathVariable Long id) {
-        if (propiedadService.delete(id)) {
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        if (propiedadService.deleteById(id)) {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();

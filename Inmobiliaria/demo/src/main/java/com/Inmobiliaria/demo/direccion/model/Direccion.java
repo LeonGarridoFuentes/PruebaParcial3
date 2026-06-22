@@ -26,9 +26,9 @@ public class Direccion {
     private String comuna;
 
     @Column(nullable = true)
-    private String calle; //
+    private String calle;
 
     @Column(nullable = false)
     @NotNull
-    private Integer numero; //
+    private Integer numero;
 }

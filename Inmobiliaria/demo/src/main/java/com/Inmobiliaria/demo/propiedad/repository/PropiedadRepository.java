@@ -10,7 +10,5 @@ public interface PropiedadRepository extends JpaRepository<Propiedad, Long> {
 
     Optional<Propiedad> findByIdAndEstado(Long id, boolean estado);
 
-    Optional<Propiedad> findByIdAndUbicacionIgnoreCase(Long id, String ubicacion);
-
     boolean existsByIdAndEstado(Long id, boolean estado);
 }

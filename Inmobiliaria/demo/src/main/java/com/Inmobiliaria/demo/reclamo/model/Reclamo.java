@@ -24,7 +24,7 @@ public class Reclamo {
     @NotBlank
     private String motivo;
 
-    @Column(nullable = false, length = 1000)
+    @Column(nullable = false)
     @NotBlank
     private String descripcion;
 
