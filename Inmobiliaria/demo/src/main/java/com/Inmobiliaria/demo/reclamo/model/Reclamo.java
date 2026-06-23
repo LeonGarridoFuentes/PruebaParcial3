@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+// Cambiado a LocalDate para manejar solo fecha (sin hora)
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "reclamo")
@@ -18,7 +19,6 @@ public class Reclamo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @Column(nullable = false)
     @NotBlank
@@ -32,12 +32,13 @@ public class Reclamo {
     @NotBlank
     private String estado;
 
-    private LocalDateTime fechaReclamo;
+    private LocalDate fechaReclamo;
 
     @PrePersist
     protected void onCreate() {
-        fechaReclamo = LocalDateTime.now();
+        this.fechaReclamo = LocalDate.now();
     }
+
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private com.Inmobiliaria.demo.cliente.model.Cliente cliente;

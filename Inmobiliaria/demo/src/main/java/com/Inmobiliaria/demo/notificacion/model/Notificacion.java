@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import java.time.LocalDateTime;
+
+// Cambiado a LocalDate para manejar solo la fecha (sin hora)
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "notificaciones")
@@ -24,12 +26,11 @@ public class Notificacion {
 
     private boolean leido = false;
 
-    private LocalDateTime fechaCreacion;
+    private LocalDate fechaCreacion;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
-
 
     @ManyToOne
     @JoinColumn(name = "reclamo_id", nullable = true)
@@ -37,6 +38,7 @@ public class Notificacion {
 
     @PrePersist
     protected void onCreate() {
-        this.fechaCreacion = LocalDateTime.now();
+        // Ahora asigna correctamente solo la fecha actual
+        this.fechaCreacion = LocalDate.now();
     }
 }

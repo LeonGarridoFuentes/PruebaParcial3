@@ -24,17 +24,11 @@ public class Pago {
 
     @Column(nullable = false)
     @NotNull
-    @Positive
-    private Double monto;
-
-    @Column(nullable = false)
-    @NotNull
     private LocalDateTime fechaPago;
 
     @Column(nullable = false)
     @NotNull
     private String metodoPago;
-
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
