@@ -1,5 +1,6 @@
 package com.Inmobiliaria.demo.publicacion.service;
 
+import com.Inmobiliaria.demo.direccion.model.Direccion;
 import com.Inmobiliaria.demo.publicacion.model.Publicacion;
 import com.Inmobiliaria.demo.publicacion.repository.PublicacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +24,7 @@ public class PublicacionService {
     public void delete(Long id) {
         publicacionRepository.deleteById(id);
     }
+
+    public Publicacion findById(Long id) {return publicacionRepository.findById(id).orElse(null);}
+
 }

@@ -29,11 +29,11 @@ public class Propiedad {
 
     @Column(nullable = false)
     @NotNull
-    private int precio;
+    private Integer precio;
 
     @Column(nullable = false)
     @NotNull
-    private boolean estado;
+    private Boolean estado;
 
     @ManyToOne
     @JoinColumn(name = "direccion_id", nullable = false)

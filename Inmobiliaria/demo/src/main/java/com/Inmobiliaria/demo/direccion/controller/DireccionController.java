@@ -1,5 +1,6 @@
 package com.Inmobiliaria.demo.direccion.controller;
 
+import com.Inmobiliaria.demo.cliente.model.Cliente;
 import com.Inmobiliaria.demo.direccion.model.Direccion;
 import com.Inmobiliaria.demo.direccion.service.DireccionService;
 import jakarta.validation.Valid;
@@ -8,12 +9,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/direcciones")
 public class DireccionController {
 
     @Autowired
-    private DireccionService direccionService; //
+    private DireccionService direccionService;
+
+    @GetMapping
+    public ResponseEntity<List<Direccion>> listar() {
+        List<Direccion> direccions = direccionService.findAll();
+        if (direccions.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(direccions);
+    }
+
     @PostMapping
     public ResponseEntity<Direccion> crear(@Valid @RequestBody Direccion direccion) {
         Direccion nueva = direccionService.save(direccion);

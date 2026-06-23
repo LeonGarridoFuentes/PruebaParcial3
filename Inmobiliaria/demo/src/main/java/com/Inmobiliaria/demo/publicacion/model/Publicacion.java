@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.Inmobiliaria.demo.corredor.model.Corredor;
 import com.Inmobiliaria.demo.propiedad.model.Propiedad;
@@ -20,7 +20,7 @@ public class Publicacion {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDateTime fechaPublicacion;
+    private LocalDate fechaPublicacion;
 
     @ManyToOne
     @JoinColumn(name = "corredor_id", nullable = false)

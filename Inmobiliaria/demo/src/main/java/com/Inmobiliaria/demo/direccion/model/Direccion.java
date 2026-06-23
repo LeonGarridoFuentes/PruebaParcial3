@@ -25,7 +25,7 @@ public class Direccion {
     @NotBlank
     private String comuna;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String calle;
 
     @Column(nullable = false)
