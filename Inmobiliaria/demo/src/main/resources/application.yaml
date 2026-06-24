@@ -3,12 +3,18 @@ server:
 
 spring:
   application:
-    name: inmobiliaria-service # Identificador para Eureka
+    name: inmobiliaria-service
+
+  cloud:
+    compatibility-verifier:
+      enabled: false
+
   datasource:
     url: jdbc:mysql://localhost:3306/db_inmobibliaria?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,10 +22,13 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+
   liquibase:
     enabled: false
 
 eureka:
   client:
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
