@@ -6,7 +6,6 @@ spring:
     name: inmobiliaria-service
 
   datasource:
-    # Colocamos la URL pública de tu Railway con los parámetros de red obligatorios directos aquí
     url: jdbc:mysql://reseau.proxy.rlwy.net:44401/railway?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
     username: root
     password: bPmsKrChvLxjHkGTUADKbHaXOjcVHGAS
