@@ -6,9 +6,9 @@ spring:
     name: inmobiliaria-service
 
   datasource:
-    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/db_inmobiliaria}?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
-    username: ${MYSQLUSER:root}
-    password: ${MYSQLPASSWORD:}
+    url: jdbc:mysql://root:bPmsKrChvLxjHkGTUADKbHaXOjcVHGAS@reseau.proxy.rlwy.net:44401/railway?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: bPmsKrChvLxjHkGTUADKbHaXOjcVHGAS
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
