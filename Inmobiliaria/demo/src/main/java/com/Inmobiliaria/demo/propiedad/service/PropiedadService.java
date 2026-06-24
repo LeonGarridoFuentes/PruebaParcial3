@@ -1,7 +1,6 @@
 
 package com.Inmobiliaria.demo.propiedad.service;
 
-import com.Inmobiliaria.demo.direccion.model.Direccion;
 import com.Inmobiliaria.demo.propiedad.model.Propiedad;
 import com.Inmobiliaria.demo.propiedad.repository.PropiedadRepository;
 import jakarta.transaction.Transactional;

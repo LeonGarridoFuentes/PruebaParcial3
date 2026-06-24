@@ -13,9 +13,7 @@ public class PagoService {
     @Autowired
     private PagoRepository pagoRepository;
 
-    public Pago guardarPago(Pago pago) {
-        return pagoRepository.save(pago);
-    }
+    public Pago guardarPago(Pago pago) {return pagoRepository.save(pago);}
 
     public List<Pago> obtenerTodosLosPagos() {
         return pagoRepository.findAll();
