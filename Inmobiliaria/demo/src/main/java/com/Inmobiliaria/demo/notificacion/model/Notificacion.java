@@ -38,7 +38,6 @@ public class Notificacion {
 
     @PrePersist
     protected void onCreate() {
-        // Ahora asigna correctamente solo la fecha actual
         this.fechaCreacion = LocalDate.now();
     }
 }
