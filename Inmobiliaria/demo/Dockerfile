@@ -8,8 +8,7 @@ FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar inmobiliaria-service.jar
 
-
-ENV PORT=8080
+ENV PORT=8081
 ENV SPRING_PROFILES_ACTIVE=local
 
 EXPOSE ${PORT}
