@@ -6,7 +6,8 @@ spring:
     name: inmobiliaria-service
 
   datasource:
-    url: jdbc:mysql://root:bPmsKrChvLxjHkGTUADKbHaXOjcVHGAS@reseau.proxy.rlwy.net:44401/railway?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    # Colocamos la URL pública de tu Railway con los parámetros de red obligatorios directos aquí
+    url: jdbc:mysql://reseau.proxy.rlwy.net:44401/railway?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
     username: root
     password: bPmsKrChvLxjHkGTUADKbHaXOjcVHGAS
     driver-class-name: com.mysql.cj.jdbc.Driver
