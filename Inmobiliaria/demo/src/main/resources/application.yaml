@@ -5,7 +5,7 @@ spring:
   application:
     name: inmobiliaria-service
 
-  datasource:e
+  datasource:
     url: ${DATABASE_URL:jdbc:mysql://localhost:3306/db_inmobiliaria}
     username: ${MYSQLUSER:root}
     password: ${MYSQLPASSWORD:}
