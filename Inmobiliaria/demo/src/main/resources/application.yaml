@@ -5,15 +5,15 @@ spring:
   application:
     name: inmobiliaria-service
 
-  datasource:
+  datasource:e
     url: ${DATABASE_URL:jdbc:mysql://localhost:3306/db_inmobiliaria}
-    username: root
-    password:
+    username: ${MYSQLUSER:root}
+    password: ${MYSQLPASSWORD:}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
@@ -39,4 +39,4 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
